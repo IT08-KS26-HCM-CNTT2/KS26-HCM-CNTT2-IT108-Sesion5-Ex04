@@ -1,0 +1,18 @@
+
+BÀI 4: XỬ LÝ LỖI ĐƯỜNG DẪN KHI TRIỂN KHAI DỰ ÁN
+PHẦN 1: BẢNG SO SÁNH GIỮA ABSOLUTE PATH VÀ RELATIVE PATH
+| Tiêu chí                      | Đường dẫn tuyệt đối (Absolute Path)                | Đường dẫn tương đối (Relative Path)                |
+|-------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Cú pháp ví dụ                 | C:\Users\An-K26\FarmProject\data\logs.csv         | ../data/logs.csv                                  |
+| Độ dài                        | Dài, chứa toàn bộ cấu trúc ổ đĩa và thư mục root  | Ngắn gọn, chỉ tính từ vị trí con trỏ/script đứng |
+| Tính di động (Portability)    | Rất kém. Khi gửi project cho người khác hoặc đổi  | Rất cao. Project có thể chạy ở bất kỳ máy nào hoặc|
+| khi chuyển project            | sang máy khác (khác tên User, khác ổ C:/D:) sẽ    | thư mục nào, miễn là cấu trúc thư mục con bên    |
+| sang máy khác                 | bị lỗi "File Not Found".                          | trong project không bị thay đổi.                  |
+PHẦN 2: LỰA CHỌN GIẢI PHÁP TỐI ƯU VÀ GIẢI THÍCH KÝ HIỆU
+1. Lựa chọn giải pháp tối ưu:
+   - Trong lập trình và phát triển dự án, giải pháp tối ưu nhất là sử dụng **Đường dẫn tương đối (Relative Path): `../data/logs.csv`**.
+2. Ý nghĩa của ký hiệu `..`:
+   - Ký hiệu `..` biểu thị hành động **đi ngược ra ngoài 1 cấp thư mục cha** (parent directory) so với vị trí hiện tại của file script đang chạy.
+   - Trong ví dụ này, giả sử file script Python đang nằm trong thư mục `src` (`FarmProject/src/script.py`), câu lệnh `../data/logs.csv` sẽ:
+     + Lùi 1 cấp ra khỏi thư mục `src` để quay về thư mục gốc của dự án (`FarmProject`).
+     + Sau đó đi tiếp vào thư mục `data` và tìm đến file `logs.csv`.
